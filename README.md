@@ -5,22 +5,22 @@ Extract files from the strange format used by i.e. Broadcom to distribute the dr
 The characteristic of the format is the string '!SFX_LYME!' at the end of the file
 
 Author:
-  A. Ayala (killerrex@gmail.com)
+  killerrex@gmail.com
 
 License: GPLv3
 
 This code is based in the information from
   Old format, no directory flag, written in perl:
-    http://unlyme.florz.de/
+http://unlyme.florz.de/
 
   Some in insights about the new format (in perfect russian):
-    https://exelab.ru/f/index.php?action=vthread&forum=5&topic=16403
+https://exelab.ru/f/index.php?action=vthread&forum=5&topic=16403
 
   Trial and error with some files.
 
 This means that it is easy that it does not work with a lot of files in the wild.
 
-The genral description of the format is:
+The general description of the format is:
 
 -Windows SFX Block-
 -File 1 zlib compressed-
@@ -59,5 +59,3 @@ offset and size must be 0 (as the zlib compressed of an empty file uses 8 bytes)
 
 In some files the offset value has a bias so Unlyme tries to determine it using that
 the last byte of the last file shall be next to the TOC.
-
-
