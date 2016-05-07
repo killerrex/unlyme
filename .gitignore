@@ -1,0 +1,5 @@
+# Ignore the pycharm directory
+.idea
+
+# And any cache
+__pycache__
