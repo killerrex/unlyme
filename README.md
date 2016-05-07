@@ -15,7 +15,28 @@ This code is based in the information from
 
 This means that it is easy that it does not work with a lot of files in the wild.
 
-## General description of the format is:
+## Usage
+You can use the module from a python3 script, or from the command line.
+* List the content of a file
+```bash
+python3 -m lymefile -l Lyme.ly
+```
+* Extract the content of a file to the current directory
+```bash
+python3 -m lymefile --extract Lyme.ly
+```
+* Extract the content of an old format file to the current directory
+```bash
+python3 -m lymefile --extract Lyme.ly --format=old
+```
+* See the help
+```bash
+python3 -m lymefile --help
+```
+
+## General description of the format
+
+The format is not specified anywhere, but using the information from Florian Zumbiehl <florz@florz.de>, the forum guidelines (where they refer to the new format as 'Chinese variant') and some examples from broadcom it can be something like:
 
 * Windows SFX Block
 * Data Area:
@@ -49,8 +70,6 @@ offset length size 'File Path' n flag:
 * flag: Single byte that is 0 for files and 1 for directories.
 
 For directories, offset, length and size are 0.
-In the old format the flag does not exist, so to determine if it is a file or a folder, both
-offset and size must be 0 (as the zlib compressed of an empty file uses 8 bytes)
+In the old format the flag does not exist, so to determine if it is a folder, both offset and size must be 0 (as the zlib compressed of an empty file uses 8 bytes)
 
-In some files the offset value has a bias so Unlyme tries to determine it using that
-the last byte of the last file shall be next to the TOC.
+In some files the offset value has a bias so Unlyme tries to determine it using that the last byte of the last file shall be next to the TOC.
